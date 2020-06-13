@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import '~normalize.css/normalize.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #010615;
+  font: normal 18px/1.5em 'Caveat', cursive;
+}
+
+h1 {
+  font-size: 7rem;
+  letter-spacing: 2.65px;
+}
+
+%box-background {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  background: #fff;
+  background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+.box {
+  position: relative;
+  width: 40%;
+  min-width: 500px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #060c21;
+  margin: 40px;
+
+  &::before {
+    @extend %box-background;
+    z-index: -1;
+  }
+
+  &::after {
+    @extend %box-background;
+    filter: blur(40px);
+    z-index: -2;
+  }
+
+  .glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: block;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+
+  .content {
+    padding: 20px;
+    color: #fff;
+  }
+}
