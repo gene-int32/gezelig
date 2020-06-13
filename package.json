@@ -9,7 +9,8 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "clear": "rimraf dist && mkdir dist",
     "predeploy": "npm run build",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "firebase deploy --only hosting",
+    "deploy:ci": "firebase --token $FIREBASE_TOKEN --only hosting --non-interactive"
   },
   "author": "",
   "license": "ISC",
