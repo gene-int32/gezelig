@@ -10,7 +10,7 @@
     "clear": "rimraf dist && mkdir dist",
     "predeploy": "npm run build",
     "deploy": "firebase deploy --only hosting",
-    "deploy:ci": "firebase --token $FIREBASE_TOKEN --only hosting --non-interactive"
+    "deploy:ci": "firebase deploy --token $FIREBASE_TOKEN --only hosting --non-interactive"
   },
   "author": "",
   "license": "ISC",
