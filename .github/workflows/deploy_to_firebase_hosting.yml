@@ -7,31 +7,19 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-    name: Build
+  build_deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout Repo
       uses: actions/checkout@master
     
     - name: Install Dependencies
       run: npm install
-    
+
     - name: Build
       run: npm run build
-  
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@master
-    
-    - name: Install Dependencies
-      run: npm install
 
     - name: Deploy to Firebase
       run: npm run deploy:ci
